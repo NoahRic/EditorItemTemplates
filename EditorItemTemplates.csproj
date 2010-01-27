@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandFilter.cs" />
+    <Compile Include="Tagger.cs" />
+    <Compile Include="BackgroundTagger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="source.extension.vsixmanifest">
