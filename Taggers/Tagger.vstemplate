@@ -1,0 +1,35 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>Tagger.cs</DefaultName>
+    <Name>Tagger</Name>
+    <Description>A tagger, that provides information associated with a span of text.  This can be used to provide outlining, squiggles, text markers, classification, smart tags, URLs, or your own custom tag type.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>ItemTemplates.ico</Icon>
+    <TemplateGroupID>Code</TemplateGroupID>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.CoreUtility</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.Data</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.Logic</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.UI</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.UI.Wpf</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.ComponentModel.Composition</Assembly>
+      </Reference>
+    </References>
+    <ProjectItem SubType="Code" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">TaggerTemplate.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

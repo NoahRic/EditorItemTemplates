@@ -1,0 +1,44 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>Classifier.cs</DefaultName>
+    <Name>Classifier</Name>
+    <Description>A classifier is used to change the appearance of text in the editor.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>ItemTemplates.ico</Icon>
+    <TemplateGroupID>Code</TemplateGroupID>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.CoreUtility</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.Data</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.Logic</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.UI</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.UI.Wpf</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Language.StandardClassification</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.ComponentModel.Composition</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>PresentationCore</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System</Assembly>
+      </Reference>
+    </References>
+    <ProjectItem SubType="Code" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">ClassifierTemplate.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

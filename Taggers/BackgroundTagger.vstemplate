@@ -1,0 +1,34 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>BackgroundTagger.cs</DefaultName>
+    <Name>Background Tagger</Name>
+    <Description>A tagger that does its work on a background thread.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>ItemTemplates.ico</Icon>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.CoreUtility</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.Data</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.Logic</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.UI</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Microsoft.VisualStudio.Text.UI.Wpf</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.ComponentModel.Composition</Assembly>
+      </Reference>
+    </References>
+    <ProjectItem SubType="Code" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">BackgroundTaggerTemplate.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

@@ -1,4 +1,5 @@
 ﻿// A tagger, which can be used to produce various types of tags (outlining regions, text markers, glyphs, classification
+// To use this template, replace all instances of "ITag" with the tag type you want to provide.
 
 using System;
 using System.Collections.Generic;
@@ -18,16 +19,16 @@ namespace EditorItemTemplates
     [ContentType("code")]
     class BackgroundTaggerProvider : ITaggerProvider
     {
-        public ITagger<T>  CreateTagger<T>(ITextBuffer buffer) where T : ITag
+        public ITagger<T> CreateTagger<T>(ITextBuffer buffer) where T : ITag
         {
-         	throw new NotImplementedException();
+            return buffer.Properties.GetOrCreateSingletonProperty(() => new $safeitemname$(buffer)) as ITagger<T>;
         }
     }
 
-    class BackgroundWorkTagger<T> : ITagger<T> where T: ITag
+    class $safeitemname$ : ITagger<ITag>
     {
         // TODO: Replace this with a more fitting data structure
-        SortedList<ITrackingSpan, T> tags;
+        SortedList<ITrackingSpan, ITag> tags;
 
         // The snapshots we've parsed and need to parse
         volatile ITextSnapshot currentSnapshot;
@@ -38,10 +39,10 @@ namespace EditorItemTemplates
         bool updateThreadRunning;
         object updateThreadMutex = new object();
 
-        public BackgroundWorkTagger(ITextBuffer buffer)
+        public $safeitemname$(ITextBuffer buffer)
         {
             this.buffer = buffer;
-            tags = new SortedList<ITrackingSpan, T>();
+            tags = new SortedList<ITrackingSpan, ITag>();
             currentSnapshot = buffer.CurrentSnapshot;
             updateThreadRunning = false;
 
@@ -97,8 +98,8 @@ namespace EditorItemTemplates
                 }
 
                 ITextSnapshot snapshotToParse = currentSnapshot;
-                SortedList<ITrackingSpan, T> newTags = new SortedList<ITrackingSpan,T>();
-                // TODO: Parse work with snapshotToParse, puting new tags in newTags
+                SortedList<ITrackingSpan, ITag> newTags = new SortedList<ITrackingSpan, ITag>();
+                // TODO: Parse work with snapshotToParse, putting new tags in newTags
 
                 parsedSnapshot = snapshotToParse;
                 tags = newTags;
@@ -152,7 +153,7 @@ namespace EditorItemTemplates
 
         public event EventHandler<SnapshotSpanEventArgs> TagsChanged;
 
-        #region Comparer for SortedList<ITrackingSpan, T>
+        #region Comparer for SortedList<ITrackingSpan, ITag>
         internal class TrackingSpanComparer : IComparer<ITrackingSpan>
         {
             ITextBuffer buffer;

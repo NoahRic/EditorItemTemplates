@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.Text.Editor;
 using Microsoft.VisualStudio.TextManager.Interop;
 using Microsoft.VisualStudio.Utilities;
 
-namespace EditorItemTemplates
+namespace $rootnamespace$
 {
     [Export(typeof(IVsTextViewCreationListener))]
     // TODO: Pick a more specific content type, like "csharp", if applicable
@@ -18,9 +18,9 @@ namespace EditorItemTemplates
     [TextViewRole(PredefinedTextViewRoles.Interactive)]
     class VsTextViewCreationListener : IVsTextViewCreationListener
     {
-        public void  VsTextViewCreated(IVsTextView textViewAdapter)
+        public void VsTextViewCreated(IVsTextView textViewAdapter)
         {
-            CommandFilter filter = new CommandFilter();
+            $safeitemname$ filter = new $safeitemname$();
 
             IOleCommandTarget next;
             if (ErrorHandler.Succeeded(textViewAdapter.AddCommandFilter(filter, out next)))
@@ -28,7 +28,7 @@ namespace EditorItemTemplates
         }
     }
 
-    class CommandFilter : IOleCommandTarget
+    class $safeitemname$ : IOleCommandTarget
     {
         /// <summary>
         /// The next command target in the filter chain (provided by <see cref="IVsTextView.AddCommandFilter"/>).
