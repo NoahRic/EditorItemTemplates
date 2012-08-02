@@ -104,6 +104,9 @@
     <VSTemplate Include="Taggers\Tagger.vstemplate">
       <OutputSubPath>Editor Extensions/Taggers</OutputSubPath>
     </VSTemplate>
+    <VSTemplate Include="Taggers\TextMarkerTagger.vstemplate">
+      <OutputSubPath>Editor Extensions/Taggers</OutputSubPath>
+    </VSTemplate>
     <VSTemplate Include="Taggers\UrlTagger.vstemplate">
       <OutputSubPath>Editor Extensions/Taggers</OutputSubPath>
     </VSTemplate>
@@ -130,6 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Taggers\GlyphTaggerTemplate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Taggers\TextMarkerTaggerTemplate.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" />
